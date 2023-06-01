@@ -5,8 +5,10 @@ defmodule AcmeHeartBeatWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", AcmeHeartBeatWeb do
+  scope "/api/v1", AcmeHeartBeatWeb do
     pipe_through :api
+
+    get "/monitor", MonitorController, :index
   end
 
   # Enable LiveDashboard in development
