@@ -53,20 +53,20 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   To implement it on yout javascript front-end, use the 'phoenix-channels' npm package:
 
   ```js
-    const {Socket} = require('phoenix-channels')
-    let socket = new Socket("ws://localhost:4000/socket")
-    
-    socket.connect()
-    
-    
-    let channel = socket.channel("monitor:lobby")
-    channel.join()
-        .receive("ok", rest => { console.log("Connected") })
-    
-    const push = channel.push("heart_beat")
-    
-    push.receive("ok", resp => console.log(resp))
-    // { heart_beat: 0.17961332544535868 }
+  const {Socket} = require('phoenix-channels')
+  let socket = new Socket("ws://localhost:4000/socket")
+  
+  socket.connect()
+  
+  
+  let channel = socket.channel("monitor:lobby")
+  channel.join()
+      .receive("ok", rest => { console.log("Connected") })
+  
+  const push = channel.push("heart_beat")
+  
+  push.receive("ok", resp => console.log(resp))
+  // { heart_beat: 0.17961332544535868 }
   ```
 
 ## Tests
@@ -75,5 +75,5 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   Run them with:
   
   ```sh
-    mix test
+  mix test
   ```
