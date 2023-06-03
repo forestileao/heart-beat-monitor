@@ -12,14 +12,14 @@ defmodule AcmeHeartBeat.MonitorTest do
 
   describe "get_by_range/2" do
     test "returns heart beats within the given range" do
-      from = DateTime.utc_now() |> DateTime.to_unix()
+      from = :os.system_time(:millisecond)
       to = from + 1000
       expected = Enum.map(from..to, &(Monitor.calc_by_time(&1)))
       assert {:ok, expected} == Monitor.get_by_range(from, to)
     end
 
     test "returns error when 'to' is less than 'from'" do
-      from = DateTime.utc_now() |> DateTime.to_unix()
+      from = :os.system_time(:millisecond)
       to = from - 1000
       assert {:error, "'to' param must be greater or equal to 'from' parameter."} == Monitor.get_by_range(from, to)
     end

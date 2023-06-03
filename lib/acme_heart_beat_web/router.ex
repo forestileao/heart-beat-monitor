@@ -1,14 +1,17 @@
 defmodule AcmeHeartBeatWeb.Router do
+  alias AcmeHeartBeatWeb.MonitorController
   use AcmeHeartBeatWeb, :router
 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/api/v1", AcmeHeartBeatWeb do
+  scope "/api/v1" do
     pipe_through :api
 
     get "/monitor", MonitorController, :index
+    get "/monitor/range", MonitorController, :get_by_range
+
   end
 
   # Enable LiveDashboard in development
