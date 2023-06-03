@@ -46,7 +46,7 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   - GET [/api/v1/monitor]: Get the current value of the HeartBeat
   - GET [/api/v1/monitor/range?from=timestamp1&to=timestamp2]: Get the value of heartbeat on a specific timestamp range
 
-# Socket:
+## Socket:
 
   Also, was implemented a websocket on route `ws://localhost:4000`
 
